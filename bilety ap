@@ -1,0 +1,27 @@
+cena_biletu = 10	
+
+liczba_biletow = 100
+
+while liczba_biletow >= 1:
+
+  print("zostalo {} biletow!!!".format(liczba_biletow))
+  imie = input("siema byczku jak ci na imie? ")
+  try:
+    ile_kupi = int(input("{} ile chcesz kupic szpeju?".format(imie)))
+    if liczba_biletow < ile_kupi:
+      raise ValueError("Zostaly tylko {} bilety ".format(liczba_biletow))
+        
+  except ValueError as err:
+    print("fak wystapil error {}, probuj do skutku ".format(err))
+  else:
+    do_zaplaty = ile_kupi * cena_biletu
+    print("do zabulenia jest {} byczq ".format(do_zaplaty))
+    czy_potwierdza = input("decydujesz sie ? t/n ")
+  
+    if czy_potwierdza.lower() == "t":
+      print("ok!!")
+      liczba_biletow -= ile_kupi
+    else:
+      print("na luzaku {}, twoja strata! ".format(imie))
+
+print("sory swirku, wszystkie bilety juz wyszly")
